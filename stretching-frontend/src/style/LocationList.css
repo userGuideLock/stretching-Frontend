@@ -1,0 +1,7 @@
+.location-list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow: auto;
+    border-top: 1px solid #ddd;  
+}

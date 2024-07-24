@@ -6,7 +6,7 @@ const LocationItem = ({ location }) => {
 
     return (
         <div className="location-item" id="location-item">
-            <img src={location.image} className="location-image" />
+            <img src={require('../assets/food.png')} className="location-image" />
             <div className="location-info">
                 <h3 className="location-title">{location.title}</h3>
                 <p className="location-description">{location.description}</p>

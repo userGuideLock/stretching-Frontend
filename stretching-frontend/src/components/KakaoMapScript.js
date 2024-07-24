@@ -3,7 +3,7 @@ const { kakao } = window;
 export default function KakaoMapScript() {
     var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
     var options = { //지도를 생성할 때 필요한 기본 옵션
-        center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+        center: new kakao.maps.LatLng(36.61082645, 127.28653441), //지도의 중심좌표.
         level: 3 //지도의 레벨(확대, 축소 정도)
     };
 
@@ -15,20 +15,20 @@ export default function KakaoMapScript() {
     // 마커를 표시할 위치와 title 객체 배열입니다 
     var positions = [
         {
-            title: '카카오',
-            latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+            title: '학교',
+            latlng: new kakao.maps.LatLng(36.61082645, 127.28653441)
         },
         {
-            title: '생태연못',
-            latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+            title: '시티팝',
+            latlng: new kakao.maps.LatLng(36.60823561,127.28887821)
         },
         {
-            title: '텃밭',
-            latlng: new kakao.maps.LatLng(33.450879, 126.569940)
+            title: '모과나무골이야기',
+            latlng: new kakao.maps.LatLng(36.606001,127.28626301)
         },
         {
-            title: '근린공원',
-            latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+            title: '둔덕골영광보리밥',
+            latlng: new kakao.maps.LatLng(36.5401162,127.2284746)
         }
     ];
 

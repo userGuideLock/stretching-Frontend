@@ -1,0 +1,38 @@
+.location-item {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.location-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background-color: #eee;
+}
+
+.location-info {
+    flex: 1;
+    margin-left: 10px;
+}
+
+.location-title {
+    font-size: 16px;
+    margin: 0;
+}
+
+.location-description {
+    font-size: 14px;
+    color: #888;
+}
+
+.location-tags {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.location-arrow {
+    font-size: 20px;
+    color: #aaa;
+}

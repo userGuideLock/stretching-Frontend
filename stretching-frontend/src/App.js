@@ -8,7 +8,7 @@ function App() {
   return (
     <div className="App">
         <Header />
-        <Map></Map>
+        <Map className='map'></Map>
         <h2 className='position'>추천 장소</h2>
         <LocationList />
     </div>

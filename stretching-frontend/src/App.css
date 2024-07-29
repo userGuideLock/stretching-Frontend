@@ -1,15 +1,15 @@
-.App {
-  width: 381px;
-  height: 790px;
-  margin: 0 auto; /* Centers the app horizontally */
-  border: 1px solid #ccc; /* Optional: adds a border for visual clarity */
-  display: flex;
-  flex-direction: column;
-  overflow-y: scroll; /* Prevents overflow */
-}
-
-.App .position{
-  margin-left: 10px;
-  margin-top: 3%;
-  margin-bottom: 3%;
+@media screen and(max-width: 430px){
+  .App {
+    margin: 0 auto; /* Centers the app horizontally */
+    border: 1px solid #ccc; /* Optional: adds a border for visual clarity */
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll; /* Prevents overflow */
+  }
+  
+  .App .position{
+    margin-left: 10px;
+    margin-top: 3%;
+    margin-bottom: 3%;
+  }
 }

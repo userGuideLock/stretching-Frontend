@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
-import LocationItem from './LocationItem';
+// import LocationItem from './LocationItem';
 import '../style/LocationList.css';
 
 //test 더미데이터
 //나중에 좌표값, id값 기반으로 추출한 데이터를 저장해서 사용할 예정
+//key값들도 여러개 추가할 예정
 const locations = [
     {
         title: '모과나무골 막국수 이야기',
@@ -26,20 +27,20 @@ const locations = [
 ];
 
 const LocationList = () => {
-    useEffect(()=>{
-        let moveUrl = document.getElementById('location-list');
-        moveUrl.addEventListener('click',()=>{
-            window.open('https://map.kakao.com/link/map/18577297', '_blank', 'noopener,noreferrer');
-        });
-    });
+    // useEffect(()=>{
+    //     let moveUrl = document.getElementById('location-list');
+    //     moveUrl.addEventListener('click',()=>{
+    //         window.open('https://map.kakao.com/link/map/18577297', '_blank', 'noopener,noreferrer');
+    //     });
+    // });
 
-    return (
-        <div className="location-list" id='location-list'>
-            {locations.map((location, index) => (
-                <LocationItem key={index} location={location} />
-            ))}
-        </div>
-    );
+    // return (
+    //     <div className="location-list" id='location-list'>
+    //         {locations.map((location, index) => (
+    //             <LocationItem key={index} location={location} />
+    //         ))}
+    //     </div>
+    // );
 };
 
 export default LocationList;

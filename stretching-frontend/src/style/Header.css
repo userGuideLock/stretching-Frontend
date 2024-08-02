@@ -1,6 +1,6 @@
 /* src/Header.css */
 .header {
-    padding: 10px;
+    padding: 3%;
     background-color: #000;
     color: #fff;
     text-align: left;
@@ -11,7 +11,7 @@
     color: #ACDCB4;
     font-size: 20px;
     font-weight: bold;
-    margin: 0 auto;
+    margin: 2% auto;
 }
 
 .header #titleText{
@@ -36,4 +36,14 @@
     color: #fff;
     font-size: 20px;
     cursor: pointer;
+}
+
+@media screen and(max-width: 435px){
+    .header {
+        padding-top: 1%;
+        background-color: #000;
+        color: #fff;
+        text-align: left;
+        position: relative; /* Required for the close button */
+    }
 }

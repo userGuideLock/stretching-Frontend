@@ -59,7 +59,7 @@ const HealingContent = () => {
                 <span id='titleText'>오늘 하루도 정말 고생 많으셨어요!</span>
             </div>
             <div>
-                <span id='Text'>오늘 하루는, '{text}' </span>
+                <span id='Text'>오늘 하루 마무리는, '{text}' </span>
             </div>
             <div>
                 <span id='subText'>어떠신가요?</span>

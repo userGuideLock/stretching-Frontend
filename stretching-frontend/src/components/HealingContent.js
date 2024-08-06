@@ -4,6 +4,25 @@ import '../style/HealingContent.css';
 
 const HealingContent = () => {
     const [text, setText] = useState('');
+    const [lat, setLat] = useState('');
+    const [lng, setLng] = useState('');
+
+    // const success = (position) => {
+    //     var lat = position.coords.latitude;
+    //     var lng = position.coords.longitude;
+    //     setLat(lat);
+    //     setLng(lng);
+    // }
+
+    function error() {
+        alert("현재 위치를 가져올 수 없음");
+    }
+
+    // if (!navigator.geolocation) {
+    //     alert("브라우저가 위치 정보를 지원하지 않음");
+    // } else {
+    //     navigator.geolocation.getCurrentPosition(success, error);
+    // }
 
     useEffect(() => {
         const instance = axios.create({
@@ -17,39 +36,24 @@ const HealingContent = () => {
             },
         });
 
-        const success = (position) => {
-            var lat = position.coords.latitude;
-            var lng = position.coords.longitude;
-            getposition(lat, lng);
-        }
 
-        function error() {
-            alert("현재 위치를 가져올 수 없음");
+        // function getposition(lat, lng) {
+        try {
+            const response = instance.get('', {
+                params: {
+                    username: "ksb",
+                    x_pos: 127.2855931,
+                    y_pos: 36.6090228
+                }
+            });
+            response.then(response => {
+                var text = response.data.healingContentText;
+                setText(text);
+            })
+        } catch (e) {
+            console.error(e);
         }
-
-        if (!navigator.geolocation) {
-            alert("브라우저가 위치 정보를 지원하지 않음");
-        } else {
-            navigator.geolocation.getCurrentPosition(success, error);
-        }
-
-        function getposition(lat, lng) {
-            try {
-                const response = instance.get('', {
-                    params: {
-                        username: "ksb",
-                        x_pos: lng,
-                        y_pos: lat
-                    }
-                });
-                response.then(response => {
-                    var text = response.data.healingContentText;
-                    setText(text);
-                })
-            } catch (e) {
-                console.error(e);
-            }
-        }
+        // }
     }, []);
 
     return (

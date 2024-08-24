@@ -4,6 +4,7 @@ import '../style/WellnessItem.css';
 const WellnessItem = ({ program }) => {
 
     return (
+        //클릭시 카카오맵으로 링크 이동
         <div className="program-item" id="program-item" onClick={() => {
             window.open(program.place_url, '_blank', 'noopener,noreferrer');
         }}>

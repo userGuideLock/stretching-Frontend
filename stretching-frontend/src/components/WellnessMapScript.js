@@ -35,12 +35,12 @@ export default function WellnessMapScript() {
     // }
 
 
-    useEffect(()=>{
+    useEffect(() => {
         var container = document.getElementById('wellnessMap'); //지도를 담을 영역의 DOM 레퍼런스
 
         var options = { //지도를 생성할 때 필요한 기본 옵션
-            center: new kakao.maps.LatLng(36.6090228, 127.2855931), //현재 위치의 좌표를 넣음.
-            level: 8 //지도의 레벨(확대, 축소 정도)
+            center: new kakao.maps.LatLng(37.8812166, 127.718571), //현재 위치의 좌표를 넣음.
+            level: 14 //지도의 레벨(확대, 축소 정도)
         };
 
         var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
@@ -49,32 +49,33 @@ export default function WellnessMapScript() {
             const response = instance.get('', {
                 params: {
                     username: "ksb",
-                    x_pos: 127.2855931,
-                    y_pos: 36.6090228
+                    x_pos: 127.718571,
+                    y_pos: 37.8812166
                 }
             });
             response.then(response => {
-                var programs = response.data.wellnessProgramPlaces;
-                for (var i = 0; i < programs.length; i++) {
-                    // 마커 이미지의 이미지 크기 입니다
-                    var imageSize = new kakao.maps.Size(24, 35);
-                    var latLng = new kakao.maps.LatLng(Number(programs[i].y), Number(programs[i].x));
-                    // 마커 이미지를 생성합니다    
-                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
-                    //console.log(new kakao.maps.LatLng(Number(positions[i].x), Number(positions[i].y)));
-                    // 마커를 생성합니다
-                    var marker = new kakao.maps.Marker({
-                        map: map, // 마커를 표시할 지도
-                        position: latLng, // 마커를 표시할 위치
-                        title: programs[i].place_name, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
-                        image: markerImage // 마커 이미지 
-                    });
+                for (var i = 0; i < response.data.results.length; i++) {
+                    for (var j = 0; j < response.data.results[i].places.length; j++) {
+                        // 마커 이미지의 이미지 크기 입니다
+                        var imageSize = new kakao.maps.Size(24, 35);
+                        var latLng = new kakao.maps.LatLng(Number(response.data.results[i].places[j].y), Number(response.data.results[i].places[j].x));
+                        // 마커 이미지를 생성합니다    
+                        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+                        //console.log(new kakao.maps.LatLng(Number(positions[i].x), Number(positions[i].y)));
+                        // 마커를 생성합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map, // 마커를 표시할 지도
+                            position: latLng, // 마커를 표시할 위치
+                            title: response.data.results[i].places[j].place_name, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                            image: markerImage // 마커 이미지 
+                        });
+                    }
                 }
             })
         } catch (e) {
             console.error(e);
         }
-    },[]);
+    }, []);
 
     return (
         <div id='wellnessMap'></div>

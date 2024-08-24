@@ -37,30 +37,46 @@ const WellnessPositions=()=>{
             },
         });
     
-        // function getposition(lat,lng){
+        const fetchPrograms=async()=>{
             try {
                 const response = instance.get('', {
                     params: {
                         username: "ksb",
-                        x_pos: 127.2855931,
-                        y_pos: 36.6090228
+                        x_pos: 127.718571,
+                        y_pos: 37.8812166
                     }
                 });
+
+                const allPlaces = [];
                 response.then(response => {
-                    var programs = response.data.wellnessProgramPlaces;
-                    setPrograms(programs);
+                    response.data.results.forEach(result => {
+                        allPlaces.push(...result.places); // Merge all places into one array
+                    });
+                    setPrograms(allPlaces);
                 })
+
             } catch (e) {
                 console.error(e);
             }
+        }
+        fetchPrograms();
         // }
     },[]);
 
     return (
+        // <div id='program-list'>
+        //     {programs && programs.map((program, index) => (
+        //         <WellnessItem key={index} program={program}></WellnessItem>
+        //     ))}
+        // </div>
         <div id='program-list'>
-            {programs && programs.map((program, index) => (
-                <WellnessItem key={index} program={program}></WellnessItem>
-            ))}
+            {programs.length > 0 ? (
+                programs.map((program, index) => (
+                    <WellnessItem key={index} program={program} />
+                ))
+            ) : (
+                <p>No programs available</p> // Fallback content
+            )}
         </div>
     );
 

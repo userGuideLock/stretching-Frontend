@@ -43,8 +43,8 @@ const Positions = () => {
                 const response = instance.get('', {
                     params: {
                         username: "ksb",
-                        x_pos: 127.2855931,
-                        y_pos: 36.6090228
+                        x_pos: 127.718571,
+                        y_pos: 37.8812166
                     }
                 });
                 response.then(response => {

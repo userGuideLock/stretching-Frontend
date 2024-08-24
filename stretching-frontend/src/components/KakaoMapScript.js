@@ -36,7 +36,7 @@ export default function KakaoMapScript() {
     // function getposition(lat, lng) {
     var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
     var options = { //지도를 생성할 때 필요한 기본 옵션
-        center: new kakao.maps.LatLng(36.6090228,127.2855931), //현재 위치의 좌표를 넣음.
+        center: new kakao.maps.LatLng(37.8812166, 127.718571), //현재 위치의 좌표를 넣음.
         level: 6 //지도의 레벨(확대, 축소 정도)
     };
 
@@ -46,8 +46,8 @@ export default function KakaoMapScript() {
         const response = instance.get('', {
             params: {
                 username: "ksb",
-                x_pos: 127.2855931,
-                y_pos: 36.6090228
+                x_pos: 127.718571,
+                y_pos: 37.8812166
             }
         });
         response.then(response => {
